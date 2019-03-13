@@ -7,6 +7,9 @@
       "label": "Build",
       "type": "shell",
       "command": "./build.bat",
+      "args": [
+        "${file}"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
