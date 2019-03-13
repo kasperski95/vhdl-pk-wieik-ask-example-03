@@ -18,28 +18,28 @@ architecture logic of task_03_core is
   signal state : std_logic_vector(0 downto 0) := reading;
   
 begin
-    process(clk, rst)
-      variable number_a : std_logic_vector(15 downto 0);
-    begin
-      if (rst = '1') then
-        state <= reading;
-        out_a <= "XXXXXXXXXXXXXXXX";
-        out_b <= "XXXXXXXXXXXXXXXX";
-        number_a := "XXXXXXXXXXXXXXXX";
-      elsif rising_edge(clk) then 
-        case state is
-          when reading =>
-            number_a := bits;
-            out_a <= "XXXXXXXXXXXXXXXX";
-            out_b <= "XXXXXXXXXXXXXXXX";
-            state <= displaying;
+  process(clk, rst)
+    variable number_a : std_logic_vector(15 downto 0);
+  begin
+    if (rst = '1') then
+      state <= reading;
+      out_a <= "UUUUUUUUUUUUUUUU";
+      out_b <= "UUUUUUUUUUUUUUUU";
+      number_a := "UUUUUUUUUUUUUUUU";
+    elsif rising_edge(clk) then 
+      case state is
+        when reading =>
+          number_a := bits;
+          out_a <= "UUUUUUUUUUUUUUUU";
+          out_b <= "UUUUUUUUUUUUUUUU";
+          state <= displaying;
 
-          when displaying => 
-            out_a <= number_a;
-            out_b <= bits;
-          when others => null;
-        end case;
-      end if;
-    end process;
+        when displaying => 
+          out_a <= number_a;
+          out_b <= bits;
+        when others => null;
+      end case;
+    end if;
+  end process;
 
 end logic;
